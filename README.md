@@ -1,7 +1,5 @@
 # C# Programming Tasks
 
-This repository contains solutions to two C# programming tasks focusing on data structures and task prioritization logic.
-
 ---
 
 ## Task 1: Implement Max Heap and Min Heap
