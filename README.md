@@ -39,8 +39,3 @@ Create a console application to manage and prioritize tasks based on due dates a
   - Resolve ties using priority levels
   - Output task details
 - Use hardcoded sample data
-
-
----
-
-**Solutions** contained in corresponding project folders with source code and documentation.
