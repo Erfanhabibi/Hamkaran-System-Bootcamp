@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 
 namespace TaskPriorityManager
@@ -25,7 +27,15 @@ namespace TaskPriorityManager
     {
         static void Main(string[] args)
         {
-            List<Task> tasks = GetSampleTasks();
+            string filePath = "tasks.csv";
+
+            List<Task> tasks = ReadTasksFromCSV(filePath);
+
+            if (tasks.Count == 0)
+            {
+                Console.WriteLine("No tasks found in CSV!");
+                return;
+            }
 
             // Existing closest task logic remains
             Task? closestTask = FindClosestTask(tasks);
@@ -101,11 +111,11 @@ namespace TaskPriorityManager
         {
             if (tasks == null || tasks.Count == 0)
                 return null;
-        
+
             DateTime today = DateTime.Today;
             Task? closestTask = null;
             int bestDifference = int.MaxValue;
-        
+
             foreach (var task in tasks)
             {
                 int difference = Math.Abs((task.DueDate.Date - today).Days);
@@ -116,80 +126,54 @@ namespace TaskPriorityManager
                     closestTask = task;
                 }
             }
-        
+
             return closestTask;
         }
 
-        static List<Task> GetSampleTasks()
+        static List<Task> ReadTasksFromCSV(string filePath)
         {
-            // Hardcoded sample data illustrating various scenarios (some completed, some not)
-            return new List<Task>
+            List<Task> tasks = new List<Task>();
+
+            if (!File.Exists(filePath))
             {
-                new Task
+                Console.WriteLine("CSV file not found!");
+                return tasks;
+            }
+
+            string[] lines = File.ReadAllLines(filePath);
+            for (int i = 1; i < lines.Length; i++) // Skip header row
+            {
+                string[] values = lines[i].Split(',');
+
+                if (values.Length < 5)
                 {
-                    Title = "Complete Project",
-                    Description = "Finish the priority task manager",
-                    CreationDate = DateTime.Today.AddDays(-7),
-                    DueDate = DateTime.Today.AddDays(1),
-                    Priority = Priority.High,
-                    Completed = DateTime.Today.AddDays(-6) // Completed task (different day)
-                },
-                new Task
-                {
-                    Title = "Team Meeting",
-                    Description = "Weekly status update",
-                    CreationDate = DateTime.Today.AddDays(-8),
-                    DueDate = DateTime.Today.AddDays(2),
-                    Priority = Priority.Medium,
-                    Completed = DateTime.Today.AddDays(-8) // Created and completed on the same day
-                },
-                new Task
-                {
-                    Title = "Code Review",
-                    Description = "Review new feature implementation",
-                    CreationDate = DateTime.Today.AddDays(-3),
-                    DueDate = DateTime.Today.AddDays(3),
-                    Priority = Priority.High,
-                    Completed = null // Incomplete
-                },
-                new Task
-                {
-                    Title = "Documentation Update",
-                    Description = "Update documentation",
-                    CreationDate = DateTime.Today.AddDays(-10),
-                    DueDate = DateTime.Today.AddDays(-2),
-                    Priority = Priority.Low,
-                    Completed = null // Incomplete and overdue
-                },
-                new Task
-                {
-                    Title = "Bug Fixing",
-                    Description = "Fix reported issues",
-                    CreationDate = DateTime.Today.AddDays(-12),
-                    DueDate = DateTime.Today.AddDays(-1),
-                    Priority = Priority.Medium,
-                    Completed = DateTime.Today.AddDays(-10) // Completed task (different day)
-                },
-                new Task
-                {
-                    Title = "New Feature Design",
-                    Description = "Design the interface",
-                    CreationDate = DateTime.Today.AddDays(-15),
-                    DueDate = DateTime.Today.AddDays(5),
-                    Priority = Priority.High,
-                    Completed = DateTime.Today.AddDays(-15) // Created and completed on the same day
-                },
-                new Task
-                {
-                    Title = "Client Feedback",
-                    Description = "Review client feedback",
-                    CreationDate = DateTime.Today.AddDays(-20),
-                    DueDate = DateTime.Today.AddDays(-5),
-                    Priority = Priority.Low,
-                    Completed = null // Incomplete and overdue
+                    Console.WriteLine($"Skipping invalid row: {lines[i]}");
+                    continue;
                 }
-            };
+
+                try
+                {
+                    Task task = new Task
+                    {
+                        Title = values[0].Trim(),
+                        Description = values[1].Trim(),
+                        CreationDate = DateTime.ParseExact(values[2].Trim(), "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                        DueDate = DateTime.ParseExact(values[3].Trim(), "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                        Priority = Enum.Parse<Priority>(values[4].Trim(), true),
+                        Completed = string.IsNullOrWhiteSpace(values[5]) ? (DateTime?)null : DateTime.ParseExact(values[5].Trim(), "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                    };
+
+                    tasks.Add(task);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error parsing row: {lines[i]}. Error: {ex.Message}");
+                }
+            }
+
+            return tasks;
         }
+
 
         static void PrintTaskDetails(Task task)
         {
