@@ -26,3 +26,4 @@ D:\bootcamp2\Hamkaran-System-Bootcamp\Task2\TaskManager\obj\Debug\net9.0\refint\
 D:\bootcamp2\Hamkaran-System-Bootcamp\Task2\TaskManager\obj\Debug\net9.0\TaskManager.pdb
 D:\bootcamp2\Hamkaran-System-Bootcamp\Task2\TaskManager\obj\Debug\net9.0\TaskManager.genruntimeconfig.cache
 D:\bootcamp2\Hamkaran-System-Bootcamp\Task2\TaskManager\obj\Debug\net9.0\ref\TaskManager.dll
+D:\bootcamp2\Hamkaran-System-Bootcamp\Task2\TaskManager\obj\Debug\net9.0\TaskManager.sourcelink.json

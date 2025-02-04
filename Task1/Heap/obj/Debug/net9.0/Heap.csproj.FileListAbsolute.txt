@@ -26,3 +26,4 @@ D:\bootcamp2\Hamkaran-System-Bootcamp\Task1\Heap\obj\Debug\net9.0\refint\Heap.dl
 D:\bootcamp2\Hamkaran-System-Bootcamp\Task1\Heap\obj\Debug\net9.0\Heap.pdb
 D:\bootcamp2\Hamkaran-System-Bootcamp\Task1\Heap\obj\Debug\net9.0\Heap.genruntimeconfig.cache
 D:\bootcamp2\Hamkaran-System-Bootcamp\Task1\Heap\obj\Debug\net9.0\ref\Heap.dll
+D:\bootcamp2\Hamkaran-System-Bootcamp\Task1\Heap\obj\Debug\net9.0\Heap.sourcelink.json
