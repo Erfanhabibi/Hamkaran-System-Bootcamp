@@ -39,7 +39,6 @@ namespace TaskPriorityManager
                 Console.WriteLine("No tasks found!");
             }
 
-            // LINQ Reports
             Console.WriteLine("==== Reports ====");
 
             // Total number of tasks
@@ -53,6 +52,7 @@ namespace TaskPriorityManager
             // Number of completed tasks within a specified date range
             DateTime fromDate = DateTime.Today.AddDays(-10); // for example
             DateTime toDate = DateTime.Today;
+
             int completedInRange = tasks.Count(t => t.Completed != null && t.Completed.Value.Date >= fromDate && t.Completed.Value.Date <= toDate);
             Console.WriteLine($"Number of completed tasks from {fromDate:d} to {toDate:d}: {completedInRange}");
 
@@ -60,7 +60,7 @@ namespace TaskPriorityManager
             int incompleteTasks = tasks.Count(t => t.Completed == null);
             Console.WriteLine($"Number of incomplete tasks: {incompleteTasks}");
 
-            // Number of overdue tasks (incomplete tasks with due date in the past)
+            // Number of overdue tasks
             int overdueTasks = tasks.Count(t => t.Completed == null && t.DueDate.Date < DateTime.Today);
             Console.WriteLine($"Number of overdue tasks: {overdueTasks}");
 
