@@ -60,8 +60,8 @@ namespace TaskPriorityManager
             Console.WriteLine($"Number of completed tasks: {completedTasks}");
 
             // Number of completed tasks within a specified date range
-            DateTime fromDate = DateTime.Today.AddDays(-10); // for example
-            DateTime toDate = DateTime.Today;
+            DateTime fromDate = new DateTime(2024, 1, 20);
+            DateTime toDate = new DateTime(2024, 1, 29);
 
             int completedInRange = tasks.Count(t => t.Completed != null && t.Completed.Value.Date >= fromDate && t.Completed.Value.Date <= toDate);
             Console.WriteLine($"Number of completed tasks from {fromDate:d} to {toDate:d}: {completedInRange}");
