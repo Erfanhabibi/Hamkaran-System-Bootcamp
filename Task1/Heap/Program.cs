@@ -1,4 +1,8 @@
-﻿public abstract class Heap<T> where T : IComparable<T>
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+public abstract class Heap<T> where T : IComparable<T>
 {
     protected readonly List<T> _elements;
 
@@ -97,6 +101,43 @@ public class MinHeap<T> : Heap<T> where T : IComparable<T>
     }
 }
 
+// New custom heap using an IComparer for dynamic ordering.
+public class ComparerHeap<T> : Heap<T> where T : IComparable<T>
+{
+    private readonly IComparer<T> _comparer;
+    public ComparerHeap(IComparer<T> comparer)
+    {
+        _comparer = comparer;
+    }
+
+    // Returns true if 'a' has higher or equal priority compared to 'b' based on the comparer.
+    protected override bool Compare(T a, T b)
+    {
+        return _comparer.Compare(a, b) >= 0;
+    }
+
+    // Provides the highest priority node.
+    public T GetHighestPriority()
+    {
+        return Peek();
+    }
+}
+
+// LINQ extension method to convert IEnumerable data into a Heap using a given IComparer.
+public static class HeapExtensions
+{
+    public static Heap<T> ToHeap<T>(this IEnumerable<T> source, IComparer<T> comparer)
+        where T : IComparable<T>
+    {
+        var heap = new ComparerHeap<T>(comparer);
+        foreach (var item in source)
+        {
+            heap.Insert(item);
+        }
+        return heap;
+    }
+}
+
 class Program
 {
     static void Main()
@@ -128,5 +169,13 @@ class Program
         Console.WriteLine("\nMin Heap Elements:");
         while (minHeap.Count > 0)
             Console.WriteLine(minHeap.RemoveTop());
+
+
+
+        // Using the ToHeap extension method with a custom comparer.
+        var numbers = new List<int> { 10, 20, 5, 15 };
+        // For a max-heap behavior, use Comparer<int>.Default
+        var customHeap = numbers.ToHeap(Comparer<int>.Default);
+        Console.WriteLine("\nCustom Heap (using comparer) Highest Priority: " + ((ComparerHeap<int>)customHeap).GetHighestPriority());
     }
 }
