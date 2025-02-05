@@ -1,0 +1,15 @@
+D:\bootcamp2\Hamkaran-System-Bootcamp\Task3\TaskManagerWithToHeap\bin\Debug\net9.0\TaskManagerWithToHeap.exe
+D:\bootcamp2\Hamkaran-System-Bootcamp\Task3\TaskManagerWithToHeap\bin\Debug\net9.0\TaskManagerWithToHeap.deps.json
+D:\bootcamp2\Hamkaran-System-Bootcamp\Task3\TaskManagerWithToHeap\bin\Debug\net9.0\TaskManagerWithToHeap.runtimeconfig.json
+D:\bootcamp2\Hamkaran-System-Bootcamp\Task3\TaskManagerWithToHeap\bin\Debug\net9.0\TaskManagerWithToHeap.dll
+D:\bootcamp2\Hamkaran-System-Bootcamp\Task3\TaskManagerWithToHeap\bin\Debug\net9.0\TaskManagerWithToHeap.pdb
+D:\bootcamp2\Hamkaran-System-Bootcamp\Task3\TaskManagerWithToHeap\obj\Debug\net9.0\TaskManagerWithToHeap.GeneratedMSBuildEditorConfig.editorconfig
+D:\bootcamp2\Hamkaran-System-Bootcamp\Task3\TaskManagerWithToHeap\obj\Debug\net9.0\TaskManagerWithToHeap.AssemblyInfoInputs.cache
+D:\bootcamp2\Hamkaran-System-Bootcamp\Task3\TaskManagerWithToHeap\obj\Debug\net9.0\TaskManagerWithToHeap.AssemblyInfo.cs
+D:\bootcamp2\Hamkaran-System-Bootcamp\Task3\TaskManagerWithToHeap\obj\Debug\net9.0\TaskManagerWithToHeap.csproj.CoreCompileInputs.cache
+D:\bootcamp2\Hamkaran-System-Bootcamp\Task3\TaskManagerWithToHeap\obj\Debug\net9.0\TaskManagerWithToHeap.sourcelink.json
+D:\bootcamp2\Hamkaran-System-Bootcamp\Task3\TaskManagerWithToHeap\obj\Debug\net9.0\TaskManagerWithToHeap.dll
+D:\bootcamp2\Hamkaran-System-Bootcamp\Task3\TaskManagerWithToHeap\obj\Debug\net9.0\refint\TaskManagerWithToHeap.dll
+D:\bootcamp2\Hamkaran-System-Bootcamp\Task3\TaskManagerWithToHeap\obj\Debug\net9.0\TaskManagerWithToHeap.pdb
+D:\bootcamp2\Hamkaran-System-Bootcamp\Task3\TaskManagerWithToHeap\obj\Debug\net9.0\TaskManagerWithToHeap.genruntimeconfig.cache
+D:\bootcamp2\Hamkaran-System-Bootcamp\Task3\TaskManagerWithToHeap\obj\Debug\net9.0\ref\TaskManagerWithToHeap.dll
