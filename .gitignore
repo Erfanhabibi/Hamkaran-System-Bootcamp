@@ -1,0 +1,43 @@
+# Visual Studio-specific files
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build artifacts
+bin/
+obj/
+out/
+*.exe
+*.dll
+*.pdb
+*.log
+
+# Dependencies
+packages/
+node_modules/
+
+# Rider IDE (JetBrains)
+.idea/
+*.sln.iml
+
+# MacOS/Linux-specific
+.DS_Store
+._*
+
+# Windows-specific
+Thumbs.db
+desktop.ini
+
+# Debugging and Logs
+*.log
+*.tlog
+*.cache
+*.bak
+*.swp
+*.swo
+
+# Publish output
+publish/
+wwwroot/
